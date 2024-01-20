@@ -18,11 +18,11 @@
               <span class="text-[red] font-bold text-[12px] m-[10px] block">{{ errors[0] }}</span>
               <input type="text" v-model="Name" name="name" id="name" class="w-full p-[5px_15px] h-[50px] transition-all duration-[.6s] border border-[#2b17ac95]  hover:border-[#2C17AC] rounded-[12px] placeholder:text-[#8D8D8D] text-[rgba(0,_0,_0,_0.80)] hover:bg-gradient-to-r from-[#fff9e4ac] to-white text-[15px] font-bold outline-none"  placeholder="ادخل اسمك" >
             </ValidationProvider>
-            <ValidationProvider name="number" rules="required|numeric|max:9|min:9" :custom-messages="{required: 'اكتب  رقم التليفون !'}" v-slot="{ errors }">
+            <ValidationProvider name="number" rules="required|numeric|min:9" :custom-messages="{required: 'اكتب  رقم التليفون !'}" v-slot="{ errors }">
               <span class="text-[red] font-bold text-[12px] m-[10px] block">{{ errors[0] }}</span>
               <input type="number" name="number" v-model="number" id="number" class="w-full p-[5px_15px] h-[50px] transition-all duration-[.6s] border border-[#2b17ac95] hover:border-[#2C17AC] rounded-[12px] placeholder:text-[#8D8D8D] text-[rgba(0,_0,_0,_0.80)] text-[15px] hover:bg-gradient-to-r from-[#fff9e4ac] to-white font-bold outline-none"  placeholder="رقم الموبايل" >
             </ValidationProvider>
-            <ValidationProvider name="massage" rules="required|alpha" :custom-messages="{required: 'اكتب رسالة !'}" v-slot="{ errors }">
+            <ValidationProvider name="massage" rules="required" :custom-messages="{required: 'اكتب رسالة !'}" v-slot="{ errors }">
               <span class="text-[red] font-bold text-[12px] m-[10px] block">{{ errors[0] }}</span>
               <textarea name="massage" v-model="massage" id="massage" class="w-full p-[15px_15px] transition-all duration-[.6s] border border-[#2b17ac95] hover:border-[#2C17AC] rounded-[12px] placeholder:text-[#8D8D8D] text-[rgba(0,_0,_0,_0.80)] text-[15px] hover:bg-gradient-to-r from-[#fff9e4ac] to-white font-bold outline-none" placeholder="الرسالة" cols="30" rows="10"></textarea>
             </ValidationProvider>
@@ -37,6 +37,7 @@
 
 import { extend } from 'vee-validate';
 import { ValidationProvider, ValidationObserver } from 'vee-validate/dist/vee-validate.full';
+import axios from 'axios';
 
 extend('minmax', {
   validate(value, { min, max }) {
@@ -60,7 +61,17 @@ export default {
   },
   methods: {
     onSubmit () {
-      alert('Form has been submitted!');
+
+      const addData = {
+        name:  this.Name,
+        phone:  this.number,
+        message: this.massage,
+      }
+
+      axios.post(`${process.env.VUE_APP_URL}/api/contact/send_message`, addData)
+      .then(()=>{
+            alert('sad')
+      });
     }
   }
 }

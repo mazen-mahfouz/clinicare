@@ -10,17 +10,17 @@
                     <button @click="change_person = 'doctor'" class="w-full h-full justify-center items-center text-[16px] hover:bg-[#5599f9] text-[white] py-[20px] border m-auto md:m-0 cursor-pointer transition ease-in " :class="{'bg-[#5599f9]': change_person == 'doctor', 'bg-[#5599f982]': change_person == 'client'}">دكتور</button>
                   </div>
                   <ValidationObserver v-slot="{ handleSubmit }" v-if="change_person == 'client'">
-                    <form  @submit.prevent="handleSubmit(onSubmit)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
+                    <form  @submit.prevent="handleSubmit(register_user)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
                       <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-2xl mb-[30px]">انشاء حساب <span class="text-[#5599f9]">كمريض</span></h1>
                         <div class="w-full grid sm:grid-cols-2 gap-[20px]">
-                          <ValidationProvider name="first_name" rules="required|alpha" :custom-messages="{required: 'اكتب اسمك الاول !'}" v-slot="{ errors }">
+                          <ValidationProvider name="first_name" rules="required" :custom-messages="{required: 'اكتب اسمك الاول !'}" v-slot="{ errors }">
                             <div>
                               <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">الاسم الاول</label>
                               <input type="text" v-model="frist_name_clint" name="first_name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="محمد" required="">
                               <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                             </div>
                           </ValidationProvider>
-                          <ValidationProvider name="last_name" rules="required|alpha" :custom-messages="{required: 'اكتب الاسم التاني !'}" v-slot="{ errors }">
+                          <ValidationProvider name="last_name" rules="required" :custom-messages="{required: 'اكتب الاسم التاني !'}" v-slot="{ errors }">
                             <div>
                               <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 ">الاسم التاني</label>
                               <input type="text" v-model="last_name_clint" name="last_name" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="احمد" required="">
@@ -33,7 +33,7 @@
                           <input type="email" v-model="email_clint" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <ValidationProvider name="Name" rules="required|alpha|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
+                        <ValidationProvider name="Name" rules="required|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">كلمة المرور</label>
                             <input type="password" v-model="pass_clint" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                             <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
@@ -46,17 +46,6 @@
                                 </ul>
                               </div>
                             </div>
-                        <div class="flex items-center justify-between mt-[40px]">
-                            <div class="flex items-start gap-[5px]">
-                                <div class="flex items-center h-5 ">
-                                  <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 ">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                  <label for="remember" class="text-gray-500 ">تذكرنى</label>
-                                </div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-primary-600 hover:underline ">هل نسيت كلمة السر؟</a>
-                        </div>
                         <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">تسجيل الدخول</button>
                         <p class="text-sm font-light text-gray-500 ">
                           تمتلك حساب بالفعل قم <router-link to="/login" class="font-medium text-primary-600 hover:underline">بتسجيل الدخول</router-link>
@@ -64,17 +53,17 @@
                     </form>
                 </ValidationObserver>
                 <ValidationObserver v-slot="{ handleSubmit }" v-if="change_person == 'doctor'">
-                  <form  @submit.prevent="handleSubmit(onSubmit)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
+                  <form  @submit.prevent="handleSubmit(register_doctor)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
                       <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-2xl mb-[30px]">انشاء حساب <span class="text-[#5599f9]">كدكتور</span></h1>
                         <div class="w-full grid sm:grid-cols-2 gap-[20px]">
-                          <ValidationProvider name="first_name" rules="required|alpha" :custom-messages="{required: 'اكتب اسمك الاول !'}" v-slot="{ errors }">
+                          <ValidationProvider name="first_name" rules="required" :custom-messages="{required: 'اكتب اسمك الاول !'}" v-slot="{ errors }">
                             <div>
                               <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">الاسم الاول</label>
                               <input type="text" v-model="frist_name_doctor" name="first_name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="محمد" required="">
                               <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                             </div>
                           </ValidationProvider>
-                          <ValidationProvider name="last_name" rules="required|alpha" :custom-messages="{required: 'اكتب الاسم التاني !'}" v-slot="{ errors }">
+                          <ValidationProvider name="last_name" rules="required" :custom-messages="{required: 'اكتب الاسم التاني !'}" v-slot="{ errors }">
                             <div>
                               <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 ">الاسم التاني</label>
                               <input type="text" v-model="last_name_doctor" name="last_name" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="احمد" required="">
@@ -87,11 +76,37 @@
                           <input type="email" v-model="email_doctor" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <ValidationProvider name="Name" rules="required|alpha|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
+                        <ValidationProvider name="Name" rules="required|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">كلمة المرور</label>
                             <input type="password" v-model="pass_doctor" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                             <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
+                        <ValidationProvider name="bio" rules="required" :custom-messages="{required: 'اكتب وصفك !'}" v-slot="{ errors }">
+                          <label for="bio" class="block mb-2 text-sm font-medium text-gray-900 ">وصف عنك</label>
+                          <input type="text" v-model="bio_doctor" name="bio" id="bio" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="اخصائي روماتيزم و مفاصل و الطب الطبيعي و التاهيل رئيس الجمعية المصرية للروماتيزم والتاهيل..." required="">
+                          <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
+                        </ValidationProvider>
+                        <ValidationProvider name="number" rules="required|numeric|min:7" :custom-messages="{required: 'اكتب رقمك !'}" v-slot="{ errors }">
+                          <label for="number" class="block mb-2 text-sm font-medium text-gray-900 ">رقمك</label>
+                          <input type="number" v-model="number_doctor" name="number" id="number" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="0109645563" required="">
+                          <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
+                        </ValidationProvider>
+                        <div class="w-full grid sm:grid-cols-2 gap-[20px]">
+                          <ValidationProvider name="degree" rules="required" :custom-messages="{required: 'اكتب الشهادة الجامعيه  !'}" v-slot="{ errors }">
+                            <div>
+                              <label for="degree" class="block mb-2 text-sm font-medium text-gray-900 ">الشهادة</label>
+                              <input type="text" v-model="degree_doctor" name="degree" id="degree" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="من كليه طب عين شمس" required="">
+                              <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
+                            </div>
+                          </ValidationProvider>
+                          <ValidationProvider name="placeWork" rules="required" :custom-messages="{required: 'اكتب مكان العمل !'}" v-slot="{ errors }">
+                            <div>
+                              <label for="placeWork" class="block mb-2 text-sm font-medium text-gray-900 ">مكان العمل</label>
+                              <input type="text" v-model="placeWork_doctor" name="placeWork" id="placeWork" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="السعودية مركز الرياض التخصصي" required="">
+                              <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
+                            </div>
+                          </ValidationProvider>
+                        </div>
                         <div class="w-full grid sm:grid-cols-2 gap-[20px]">
                           <div class=" relative w-full">
                             <div class="relative w-full">
@@ -110,17 +125,6 @@
                               </div>
                             </div>
                           </div>
-                        <div class="flex items-center justify-between mt-[40px]">
-                            <div class="flex items-start gap-[5px]">
-                                <div class="flex items-center h-5 ">
-                                  <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 ">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                  <label for="remember" class="text-gray-500 ">تذكرنى</label>
-                                </div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-primary-600 hover:underline ">هل نسيت كلمة السر؟</a>
-                        </div>
                         <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">تسجيل الدخول</button>
                         <p class="text-sm font-light text-gray-500 ">
                           تمتلك حساب بالفعل قم <router-link to="/login" class="font-medium text-primary-600 hover:underline">بتسجيل الدخول</router-link>
@@ -138,6 +142,7 @@
 
 // import { extend } from 'vee-validate';
 import { ValidationProvider, ValidationObserver } from 'vee-validate/dist/vee-validate.full';
+import axios from 'axios';
 
 export default {
   name: 'RegisterPage',
@@ -153,6 +158,10 @@ export default {
       last_name_doctor: '',
       email_doctor: '',
       pass_doctor: '',
+      bio_doctor: '',
+      degree_doctor: '',
+      placeWork_doctor: '',
+      number_doctor: '',
 
       gender_clint: ['ذكر', 'انثي'],
       select_gender_clint: 'ذكر',
@@ -162,32 +171,76 @@ export default {
       select_gender_doctor: 'ذكر',
       toogle_gender_doctor : false,
       
-      specialtiess: ['الجراحة التجميلية', 'القلب والأوعية الدموية', 'الأمراض الجلدية', 'الأشعة والأورام', 'الجراحة', 'النساء والولادة', 'الأمراض التنفسية', 'أمراض الجهاز الهضمي', 'الأطفال',],
-        select_specialties: 'كل التخصصات',
+      specialtiess: [],
+        select_specialties: '',
         toogle_specialties : false,
     };
+  },
+  created(){
+    axios.get(`${process.env.VUE_APP_URL}/api/report/create`)
+    .then((response) => { 
+        response.data.professions.forEach((value) => {
+            this.specialtiess.push(value.name);
+        });
+        this.select_specialties = response.data.professions[0].name
+    }).catch(function (error) {
+        console.log(error.message)
+    });
   },
   components:{
     ValidationProvider,
     ValidationObserver
   },
   mounted() {
-         let self = this;
-        document.addEventListener('click', (e)=> {
-            if (self.$refs.mytoogle_gender_clint !==undefined && self.$refs.mytoogle_gender_clint.contains(e.target)===false) {
-              self.toogle_gender_clint = false;
-            }
-            if (self.$refs.mytoogle_gender_doctor !==undefined && self.$refs.mytoogle_gender_doctor.contains(e.target)===false) {
-              self.toogle_gender_doctor = false;
-            }
-            if (self.$refs.mytoogle_specialties !==undefined && self.$refs.mytoogle_specialties.contains(e.target)===false) {
-              self.toogle_specialties = false;
-            }
-        })
+
+    if(this.$localStorage.token){
+      this.$router.push('/')
+    }
+
+    let self = this;
+    document.addEventListener('click', (e)=> {
+        if (self.$refs.mytoogle_gender_clint !==undefined && self.$refs.mytoogle_gender_clint.contains(e.target)===false) {
+          self.toogle_gender_clint = false;
+        }
+        if (self.$refs.mytoogle_gender_doctor !==undefined && self.$refs.mytoogle_gender_doctor.contains(e.target)===false) {
+          self.toogle_gender_doctor = false;
+        }
+        if (self.$refs.mytoogle_specialties !==undefined && self.$refs.mytoogle_specialties.contains(e.target)===false) {
+          self.toogle_specialties = false;
+        }
+    })
   },
   methods: {
-    onSubmit () {
-      alert('Form has been submitted!');
+    register_user () {
+      const addData = {
+          first_name:  this.frist_name_clint,
+          last_name:  this.last_name_clint,
+          email: this.email_clint,
+          password: this.pass_clint,
+          gender: this.select_gender_clint,
+      }       
+      axios.post(`${process.env.VUE_APP_URL}/api/auth/register/user`, addData)
+      .then(()=>{
+            this.$router.push('/login');
+      });
+    },
+    register_doctor () {
+      const addData = {
+          first_name:  this.frist_name_doctor,
+          last_name:  this.last_name_doctor,
+          email: this.email_doctor,
+          password: this.pass_doctor,
+          gender: this.select_gender_doctor,
+          degree: this.degree_doctor,
+          bio: this.bio_doctor,
+          phone: Number(this.number_doctor),
+          profession: this.select_specialties,
+          work_at: this.placeWork_doctor,
+      }       
+      axios.post(`${process.env.VUE_APP_URL}/api/auth/register/doctor`, addData)
+      .then(()=>{
+            this.$router.push('/login');
+      });
     },
     selectOF_gender_clint(x){
       this.select_gender_clint = x;

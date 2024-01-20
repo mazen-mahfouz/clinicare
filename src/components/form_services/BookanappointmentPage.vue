@@ -1,28 +1,36 @@
 <template>
-  <div class="ConductingexaminationsPage">
-    <div class="ConductingexaminationsPage text-center w-full max-w-[1400px] m-auto px-[10px] md:px-[60px] py-[60px]">
+  <div class="BookanappointmentPage ">
+    <div class="BookanappointmentPage  text-center w-full max-w-[1400px] m-auto px-[10px] md:px-[60px] py-[60px]">
       <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-[28px] mb-[20px]">نموذج طلب إجراء الفحوصات والأشعة</h1>
       <p class="text-[14px] text-gray-700 mb-[30px]">أحياناً يتطلب الحصول على رأي طبي ثاني إجراء المزيد من الفحوصات والأشعة والتحاليل المختبرية التي تساعد الاستشاري على إعطاء تقرير مفصل عن الحالة الصحية للمريض وتقديم خطط العلاج المقترحة التي تعمل على تحسين الظروف الصحية للمريض.</p>
     
       <ValidationObserver v-slot="{ handleSubmit }"  v-show="details_form == false">
         <form  @submit.prevent="handleSubmit(details_form1)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px] text-start" action="#">
-            <div class=" relative w-full mb-[30px]">
-              <span ref='error_hospitall' class="hidden text-[red] font-bold text-[12px] m-[5px] my-[20px] block">اختر المستشفي</span>
-              <div class="relative w-full">
-                <div ref="mytoogle_hospitals" class="cursor-pointer flex items-center justify-between border p-4 py-[10px] text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 w-full" @click="toogle_hospitals == false? toogle_hospitals = true : toogle_hospitals = false"><p class="pr-[35px] md:pr-[20px] capitalize">{{select_hospitals}}</p> <img :src="require('@/image/angle-down.png')" class="w-[21px]" :class="{'-rotate-90': toogle_hospitals}"></div>
-                <ul class="absolute top-[103%] left-0 z-50 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" :class="{'block': toogle_hospitals, hidden: !toogle_hospitals}">
-                  <li v-for="(hospitals, index) in hospitalss" :key="index" @click="selectOF_hospitals(hospitals.name, hospitals.id)" class="item_select capitalize cursor-pointer py-[12px] px-[18px] text-[14px] flex items-center hover:bg-[#eeeeee] hover:text-black">{{ hospitals.name + '   - ' +  hospitals.address}} <span class="press">اختر</span></li>
-                </ul>
-              </div>
-            </div>
-            <ValidationProvider name="tests_var" rules="required" :custom-messages="{required: 'ما هي الاشعات والحوصات التي تريد ان تفعلها ؟'}" v-slot="{ errors }">
-              <h1 class="block mb-2 text-sm font-medium text-gray-900 ">ما هي الاشعات والحوصات التي تريد ان تفعلها ؟</h1>
-              <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
-              <div class="w-full flex flex-wrap justify-start items-center gap-[20px]">
-                <div class="flex items-center" v-for="(test,index) in tests" :key="index">
-                    <input :id="index" v-model="test_value" type="radio" :value="test.id" name="tests" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                    <label :for="index" class="ms-2 text-sm font-medium text-gray-900">{{test.name}}</label>
+            <div class=" relative w-full">
+                <div class="relative w-full">
+                  <div ref="mytoogle_specialties" class="cursor-pointer flex items-center justify-between border p-4 py-[10px] text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 w-full" @click="toogle_specialties == false? toogle_specialties = true : toogle_specialties = false"><p class="pr-[35px] md:pr-[20px] capitalize">{{select_specialties}}</p> <img :src="require('@/image/angle-down.png')" class="w-[21px]" :class="{'-rotate-90': toogle_specialties}"></div>
+                  <ul class="absolute top-[103%] left-0 z-50 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" :class="{'block': toogle_specialties, hidden: !toogle_specialties}">
+                    <li v-for="(specialties, index) in specialtiess" :key="specialties" @click="selectOF_specialties(specialties, index)" class="item_select capitalize cursor-pointer py-[12px] px-[18px] text-[14px] flex items-center hover:bg-[#eeeeee] hover:text-black">{{specialties}} <span class="press">اختر</span></li>
+                  </ul>
                 </div>
+            </div>
+            <ValidationProvider name="details_problem" rules="required" :custom-messages="{required: 'اكتب تفاصيل المشكة  !'}" v-slot="{ errors }">
+              <div class="my-[20px]">
+                <label for="details_problem" class="block mb-2 text-sm font-medium text-gray-900 ">اكتب تفاصيل المشكة </label>
+                <input type="text" v-model="details_problem_clint" name="details_problem" id="details_problem" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="بطني وجعاني احس بالدوران" required="">
+                <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
+              </div>
+            </ValidationProvider>
+            <ValidationProvider rules="required|image" ref="provider" name="upload_file" :custom-messages="{required: ' ارفع الملفات !'}" v-slot="{ errors }">
+              <div class="w-full md:w-[100%] relative mt-[30px]">
+                  <div id="conn-input-file" class="w-full">
+                    <div class="flex flex-col gap-[10px] justify-center items-start">
+                      <span v-for="(upload_file, index) in upload_file_clint" :key="index"> {{ index + ' - '+ upload_file.name}}</span>
+                      <span v-if="upload_file_clint.length == 0">ارفق الملفات</span>
+                    </div>
+                    <input type="file" ref="input_file" @change="handleFileChange" name="upload_file" id="add-music-file" multiple accept="jpg/*">
+                    <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
+                  </div>
               </div>
             </ValidationProvider>
             <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">ارسل</button>
@@ -57,30 +65,28 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate/dist/vee-va
 import axios from 'axios';
 
 export default {
-  name: 'ConductingexaminationsPage',
+  name: 'BookanappointmentPage',
   data() {
     return {
       upload_file_clint_transfers: false,
-
+      details_problem_clint: '',
       details_form: false,
 
-      tests: [],
-      test_value: '',
+      files: [],
+      upload_file_clint: [],
 
-      hospitalss: [],
-      select_hospitals: 'كل المستشفيات',
-      hospitalss_id: false,
-      toogle_hospitals : false,
+      specialtiess: [],
+      select_specialties: '',
+      toogle_specialties : false,
     };
   },
   created(){
-    axios.get(`${process.env.VUE_APP_URL}/api/reservation/create`)
+    axios.get(`${process.env.VUE_APP_URL}/api/report/create`)
     .then((response) => { 
-      console.log(response.data)
-        response.data.hospitals.forEach((value) => {
-            this.hospitalss.push(value);
+        response.data.professions.forEach((value) => {
+            this.specialtiess.push(value.name);
         });
-        this.tests = response.data.tests
+        this.select_specialties = response.data.professions[0].name
     }).catch(function (error) {
         console.log(error.message)
     });
@@ -92,43 +98,36 @@ export default {
   mounted() {
   let self = this;
   document.addEventListener('click', (e)=> {
-      if (self.$refs.mytoogle_hospitals !==undefined && self.$refs.mytoogle_hospitals.contains(e.target)===false) {
-        self.toogle_hospitals = false;
+      if (self.$refs.mytoogle_specialties !==undefined && self.$refs.mytoogle_specialties.contains(e.target)===false) {
+        self.toogle_specialties = false;
       }
   })
   },
   methods: {
     details_form1 () {
-      if(this.hospitalss_id !== false){
-        this.$refs.error_hospitall.classList.remove('block')
-        this.$refs.error_hospitall.classList.add('hidden')
-
       this.details_form = true;
-
-      }else{
-        this.$refs.error_hospitall.classList.remove('hidden')
-        this.$refs.error_hospitall.classList.add('block')
-      }
     },
     onSubmit(){
         const addData = {
-            test_id: this.test_value,
-            hospital_id: this.hospitalss_id,
+            notes: this.details_problem_clint,
+            profession: this.select_specialties,
             transaction: this.upload_file_clint_transfers,
+            price : 300,
+            file: this.upload_file_clint
         }     
         const headers = { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${this.$localStorage.token}`
         };
     
-        axios.post(`${process.env.VUE_APP_URL}/api/reservation/store`, addData, { headers })
+        axios.post(`${process.env.VUE_APP_URL}/api/create_meeting`, addData, { headers })
         .then(()=>{
               this.$router.push('/My-all-servicesPage');
+       
         });
     },
-     selectOF_hospitals(x,y){
-      this.select_hospitals = x;
-      this.hospitalss_id = y
+    selectOF_specialties(x){
+      this.select_specialties = x;
      },
      async handleFileChange(e) {
       const { valid } = await this.$refs.provider.validate(e);

@@ -1,4 +1,7 @@
 module.exports = {
+  globals: {
+    JitsiMeetExternalAPI: true
+  },
   root: true,
   env: {
     node: true

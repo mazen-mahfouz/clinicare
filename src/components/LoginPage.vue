@@ -10,8 +10,9 @@
                     <button @click="change_person = 'doctor'" class="w-full h-full justify-center items-center text-[16px] hover:bg-[#5599f9] text-[white] py-[20px] border m-auto md:m-0 cursor-pointer transition ease-in " :class="{'bg-[#5599f9]': change_person == 'doctor', 'bg-[#5599f982]': change_person == 'client'}">دكتور</button>
                   </div>
                   <ValidationObserver v-slot="{ handleSubmit }" v-if="change_person == 'client'">
-                    <form  @submit.prevent="handleSubmit(onSubmit)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
+                    <form  @submit.prevent="handleSubmit(login_user)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
                       <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-2xl mb-[30px]">تسجيل الدخول إلى حسابك <span class="text-[#5599f9]">كمريض</span></h1>
+                      <h1 ref="error_login" class="hidden text-[14px] font-bold leading-tight tracking-tight text-center text-[red] mb-[30px]">اكتب البيانات بشكل صحيح !!</h1>
                         <ValidationProvider name="Name" rules="required|email" :custom-messages="{required: 'اكتب البريد الالكتروني !', email: 'اكتب البريد الالكتروني !'}" v-slot="{ errors }">
                           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">بريدك الالكتروني</label>
                           <input type="email" v-model="email_clint" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
@@ -22,17 +23,6 @@
                             <input type="password" v-model="pass_clint" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                             <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-start gap-[5px]">
-                                <div class="flex items-center h-5 ">
-                                  <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 ">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                  <label for="remember" class="text-gray-500 ">تذكرنى</label>
-                                </div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-primary-600 hover:underline ">هل نسيت كلمة السر؟</a>
-                        </div>
                         <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">تسجيل الدخول</button>
                         <p class="text-sm font-light text-gray-500 ">
                           لا تملك حسابا حتى الآن؟ <router-link to="/register" class="font-medium text-primary-600 hover:underline"> تسجيل حساب</router-link>
@@ -40,11 +30,12 @@
                     </form>
                 </ValidationObserver>
                 <ValidationObserver v-slot="{ handleSubmit }" v-if="change_person == 'doctor'">
-                    <form  @submit.prevent="handleSubmit(onSubmit)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
+                    <form  @submit.prevent="handleSubmit(login_doctor)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
                       <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-2xl mb-[30px]">تسجيل الدخول إلى حسابك <span class="text-[#5599f9]">ك طبيب </span> </h1>
-                        <ValidationProvider name="email" rules="required|email" :custom-messages="{required: 'اكتب البريد الالكتروني !', email: 'اكتب البريد الالكتروني !'}" v-slot="{ errors }">
-                          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">بريدك الالكتروني</label>
-                          <input type="email" v-model="email_doctor" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
+                      <h1 ref="error_login" class="hidden text-[14px] font-bold leading-tight tracking-tight text-center text-[red] mb-[30px]">اكتب البيانات بشكل صحيح !!</h1>
+                        <ValidationProvider name="email_doctor" rules="required|email" :custom-messages="{required: 'اكتب البريد الالكتروني !', email: 'اكتب البريد الالكتروني !'}" v-slot="{ errors }">
+                          <label for="email_doctor" class="block mb-2 text-sm font-medium text-gray-900 ">بريدك الالكتروني</label>
+                          <input type="email" v-model="email_doctor" name="email_doctor" id="email_doctor" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
                         <ValidationProvider name="password" rules="required|alpha|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
@@ -52,17 +43,6 @@
                             <input type="password" v-model="pass_doctor" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                             <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-start gap-[5px]">
-                                <div class="flex items-center h-5 ">
-                                  <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 ">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                  <label for="remember" class="text-gray-500 ">تذكرنى</label>
-                                </div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-primary-600 hover:underline ">هل نسيت كلمة السر؟</a>
-                        </div>
                         <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">تسجيل الدخول</button>
                         <p class="text-sm font-light text-gray-500 ">
                           لا تملك حسابا حتى الآن؟ <router-link to="/register" class="font-medium text-primary-600 hover:underline"> تسجيل حساب</router-link>
@@ -80,6 +60,8 @@
 
 // import { extend } from 'vee-validate';
 import { ValidationProvider, ValidationObserver } from 'vee-validate/dist/vee-validate.full';
+import axios from 'axios';
+
 
 export default {
   name: 'LoginPage',
@@ -96,10 +78,51 @@ export default {
     ValidationProvider,
     ValidationObserver
   },
-  methods: {
-    onSubmit () {
-      alert('Form has been submitted!');
+  mounted(){
+    if(this.$localStorage.token){
+      this.$router.push('/')
     }
+  },  
+  methods: {
+    login_user () {
+      const addData = {
+          email: this.email_clint,
+          password: this.pass_clint,
+      }       
+      axios.post(`${process.env.VUE_APP_URL}/api/auth/login/user`, addData)
+      .then((response)=>{
+          this.$localStorage.token = response.data.authorisation.token;
+          this.$localStorage.activeUser = 'مريض';
+          this.$localStorage.person_details_user = JSON.stringify(response.data.user)
+          this.$router.push('/');
+          this.$refs.error_login.classList.remove('block')
+          this.$refs.error_login.classList.add('hidden')
+        }).catch(err => {
+            console.log(err)
+            this.$refs.error_login.classList.remove('hidden')
+            this.$refs.error_login.classList.add('block')
+            // localStorage.setItem("activeUser", false);
+        })
+    },
+    login_doctor () {
+      const addData = {
+          email: this.email_doctor,
+          password: this.pass_doctor,
+      }       
+      axios.post(`${process.env.VUE_APP_URL}/api/auth/login/doctor`, addData)
+      .then((response)=>{
+        this.$localStorage.token = response.data.authorisation.token;
+        this.$localStorage.activeUser = 'دكتور';
+        this.$localStorage.person_details_user = JSON.stringify(response.data.doctor)
+        console.log( response.data.doctor)
+        this.$router.push('/');
+        }).catch(err => {
+            console.log(err)
+            this.$refs.error_login.classList.remove('hidden')
+            this.$refs.error_login.classList.add('block')
+            localStorage.setItem("activeUser", false);
+      })
+    },
   }
 }
 </script>

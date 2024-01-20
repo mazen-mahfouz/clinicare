@@ -1,37 +1,33 @@
 <template>
-  <div id="FooterPage" class="bg-[#46439b] p-[50px_40px] md:p-[50px_80px] flex gap-[60px] sm:gap-0 justify-around items-center flex-wrap text-white">
-    <div class="w-full sm:w-[33.333%] grid items-center justify-center justify-items-center sm:justify-items-center text-center sm:text-right gap-[5px]">
-      <img src="../image/logo-footer.png" alt="" class="w-[300px]">
-      <h1 class="text-[14px]"><span class="text-[#5599f9]">كلينيكير</span> للرأي الطبي الثاني نحن نساعدك في اتخاذ القرار</h1>
+  <div id="FooterPage">
+    <div class="bg-[#46439b] p-[50px_40px] md:p-[50px_80px] text-white">
+      <div class="flex gap-[60px] sm:gap-0 justify-around items-center flex-wrap">
+        <div class="w-full sm:w-[33.333%] grid items-center justify-center justify-items-center sm:justify-items-center text-center sm:text-right gap-[5px]">
+          <img src="../image/logo.png" alt="" class="w-[300px]">
+          <h1 class="text-[14px]"> دعونا نساعدكم في اتخاذ  <span class="text-[#5599f9]">القرار</span>.</h1>
+        </div>
+        <div class="sm:w-[33.333%] sm:mt-[50px] flex justify-center items-center flex-col gap-[10px] mb-[30px]">
+          <h1 class="text-[20px]">قنوات التواصل</h1>
+          <ul class="flex justify-center items-center gap-[15px]">
+            <li class="group w-[60px] h-[60px]  rounded-full cursor-pointer transition ease-in hover:bg-[#ffffff9f]">
+              <a href="https://twitter.com/@clinicareapp" target="_blank" class="w-full h-full flex justify-center items-center transition ease-in">
+                <i class="fa-brands fa-x-twitter text-[30px] group-hover:text-[black] transition ease-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-full sm:mt-[50px] flex justify-center items-center flex-col gap-[15px]">
+        <ul class="flex justify-center items-center flex-wrap gap-y-[20px]">
+          <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in px-[30px] border-l border-white">عن كلينيكير </li>
+          <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in px-[30px] border-l border-white">سياسة الخصوصية </li>
+          <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in px-[30px] border-l border-white">الشروط والاحكام</li>
+          <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in px-[30px]">الاتصال بنا</li>
+        </ul>
+      </div>
     </div>
-    <div class="sm:w-[33.333%] sm:mt-[50px] flex justify-center items-center flex-col gap-[15px]">
-      <h1 class="text-[20px]">روابط سريعة</h1>
-      <ul class="flex justify-center items-center flex-col gap-[10px]">
-        <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in">نبذة عنا</li>
-        <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in">الاتصال بنا</li>
-        <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in">سياسة الخصوصية </li>
-        <li class="text-[14px] hover:text-sky-200 cursor-pointer transition ease-in">الشروط والاحكام</li>
-      </ul>
-    </div>
-    <div class="sm:w-[33.333%] sm:mt-[50px] flex justify-center items-center flex-col gap-[40px]">
-      <h1 class="text-[20px]">قنوات التواصل</h1>
-      <ul class="flex justify-center items-center gap-[15px]">
-        <li class="w-[35px] h-[35px] flex justify-center items-center bg-white rounded-full cursor-pointer transition ease-in hover:bg-[#ffffff9f]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]" width="26" height="24" viewBox="0 0 26 24" fill="none">
-            <path d="M10.4 17.1429L17.147 12L10.4 6.85714V17.1429ZM25.428 3.72C25.597 4.52571 25.714 5.60571 25.792 6.97714C25.883 8.34857 25.922 9.53143 25.922 10.56L26 12C26 15.7543 25.792 18.5143 25.428 20.28C25.103 21.8229 24.349 22.8171 23.179 23.2457C22.568 23.4686 21.45 23.6229 19.734 23.7257C18.044 23.8457 16.497 23.8971 15.067 23.8971L13 24C7.553 24 4.16 23.7257 2.821 23.2457C1.651 22.8171 0.897 21.8229 0.572 20.28C0.403 19.4743 0.286 18.3943 0.208 17.0229C0.117 15.6514 0.0779999 14.4686 0.0779999 13.44L0 12C0 8.24571 0.208 5.48571 0.572 3.72C0.897 2.17714 1.651 1.18286 2.821 0.754286C3.432 0.531429 4.55 0.377143 6.266 0.274285C7.956 0.154285 9.503 0.102857 10.933 0.102857L13 0C18.447 0 21.84 0.274286 23.179 0.754286C24.349 1.18286 25.103 2.17714 25.428 3.72Z" fill="#2C17AC"/>
-          </svg>
-        </li>
-        <li class="w-[35px] h-[35px] flex justify-center items-center bg-white rounded-full cursor-pointer transition ease-in hover:bg-[#ffffff9f]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]" width="26" height="24" viewBox="0 0 26 24" fill="none">
-            <path d="M19.18 4.15206C18.7806 4.15206 18.3976 4.3043 18.1152 4.57528C17.8328 4.84627 17.6742 5.2138 17.6742 5.59703C17.6742 5.98027 17.8328 6.3478 18.1152 6.61878C18.3976 6.88977 18.7806 7.04201 19.18 7.04201C19.5778 7.04201 19.9594 6.89034 20.2407 6.62038C20.5221 6.35042 20.6801 5.98427 20.6801 5.60249C20.6801 5.2207 20.5221 4.85456 20.2407 4.58459C19.9594 4.31463 19.5778 4.16297 19.18 4.16297V4.15206ZM12.509 16.0172C11.9437 16.0455 11.3784 15.9632 10.8473 15.7751C10.3163 15.5871 9.8307 15.2972 9.42014 14.9233C9.00957 14.5494 8.68263 14.0992 8.4592 13.6001C8.23578 13.101 8.12056 12.5635 8.12056 12.0204C8.12056 11.4772 8.23578 10.9397 8.4592 10.4406C8.68263 9.94153 9.00957 9.49132 9.42014 9.11739C9.8307 8.74347 10.3163 8.45365 10.8473 8.26558C11.3784 8.07752 11.9437 7.99516 12.509 8.0235C13.576 8.077 14.581 8.52143 15.3165 9.26512C16.0521 10.0088 16.4621 10.995 16.4621 12.0204C16.4621 13.0457 16.0521 14.0319 15.3165 14.7756C14.581 15.5193 13.576 15.9637 12.509 16.0172ZM12.509 5.85331C10.806 5.85331 9.17285 6.50248 7.96868 7.658C6.76451 8.81352 6.08802 10.3807 6.08802 12.0149C6.08802 13.6491 6.76451 15.2163 7.96868 16.3718C9.17285 17.5273 10.806 18.1765 12.509 18.1765C14.2119 18.1765 15.8451 17.5273 17.0493 16.3718C18.2535 15.2163 18.93 13.6491 18.93 12.0149C18.93 10.3807 18.2535 8.81352 17.0493 7.658C15.8451 6.50248 14.2119 5.85331 12.509 5.85331ZM12.509 0.00798657C9.11099 0.00798657 8.6905 0.0188921 7.34949 0.0843249C6.31318 0.10004 5.28717 0.284416 4.31515 0.629598C3.48337 0.935815 2.73104 1.41215 2.11043 2.0255C1.47536 2.62211 0.982911 3.34397 0.667131 4.14116C0.303127 5.07693 0.107151 6.06516 0.087539 7.06382C0.0115601 8.70947 -0.0149683 10.3569 0.00798712 12.004C0.00798712 15.2647 0.0193517 15.6682 0.087539 16.9551C0.144362 18.231 0.360288 19.1034 0.655767 19.8668C0.974875 20.665 1.47126 21.387 2.11043 21.9825C2.73216 22.5919 3.4844 23.0645 4.31515 23.3675C5.11067 23.6619 6.01983 23.8691 7.34949 23.9237C8.6905 24 9.11099 24 12.509 24C15.907 24 16.3275 23.9891 17.6571 23.9237C18.6972 23.9083 19.727 23.724 20.7028 23.3784C21.5346 23.0722 22.2869 22.5958 22.9076 21.9825C23.5426 21.3859 24.0351 20.664 24.3509 19.8668C24.6577 19.1034 24.8736 18.231 24.9304 16.9551C24.9986 15.6682 25.01 15.2647 25.01 12.004C25.01 8.74326 24.9986 8.33976 24.9304 7.06382C24.9151 6.06572 24.723 5.0774 24.3622 4.14116C24.0431 3.34297 23.5467 2.62103 22.9076 2.0255C22.2858 1.41608 21.5336 0.943527 20.7028 0.640503C19.9073 0.346056 18.9982 0.138852 17.6571 0.0843249C15.9422 0.0108158 14.2254 -0.0146412 12.509 0.00798657ZM12.509 2.16727C15.8502 2.16727 16.2366 2.17817 17.5549 2.24361C18.3509 2.24793 19.1398 2.38826 19.8846 2.65801C20.4642 2.87612 20.8847 3.12695 21.3165 3.55226C21.7597 3.96667 22.0325 4.37017 22.2484 4.92635C22.4302 5.35166 22.6234 5.98418 22.6803 7.16197C22.7485 8.427 22.7598 8.79779 22.7598 12.004C22.7598 15.2102 22.7485 15.5919 22.6803 16.8569C22.6705 17.6168 22.5244 18.3693 22.2484 19.0816C22.0211 19.6378 21.7597 20.0413 21.3165 20.4557C20.9159 20.8565 20.4265 21.1659 19.8846 21.3609C19.4414 21.5245 18.7822 21.7208 17.5549 21.7644C16.2366 21.8298 15.8502 21.8407 12.509 21.8407C9.16781 21.8407 8.77006 21.8298 7.45177 21.7644C6.66058 21.7585 5.87636 21.622 5.1334 21.3609C4.55381 21.1428 4.13332 20.881 3.70147 20.4557C3.28407 20.071 2.96176 19.6015 2.75821 19.0816C2.48613 18.3687 2.34389 17.6161 2.33772 16.8569C2.25628 15.2405 2.22975 13.622 2.25817 12.004C2.25817 8.79779 2.26953 8.427 2.33772 7.16197C2.38318 5.98418 2.58774 5.35166 2.75821 4.92635C2.9855 4.37017 3.25825 3.96667 3.70147 3.55226C4.10326 3.15538 4.59253 2.84983 5.1334 2.65801C5.57662 2.48353 6.23576 2.29813 7.45177 2.24361C8.77006 2.17817 9.16781 2.16727 12.509 2.16727Z" fill="#2C17AC"/>
-          </svg>
-        </li>
-        <li class="w-[35px] h-[35px] flex justify-center items-center bg-white rounded-full cursor-pointer transition ease-in hover:bg-[#ffffff9f]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]" width="13" height="24" viewBox="0 0 13 24" fill="none">
-            <path d="M12.75 3.984L10.438 3.985C8.627 3.985 8.275 4.827 8.275 6.062V8.786H12.598L12.035 13.053H8.275V24H3.769V13.053H0V8.786H3.769V5.64C3.769 1.988 6.05 0 9.383 0C10.979 0 12.35 0.116 12.75 0.168V3.984Z" fill="#2C17AC"/>
-          </svg>
-        </li>
-      </ul>
+    <div class="bg-[#111111] w-full p-[20px] flex justify-center items-center text-[12px] text-white text-center">
+        <p class="leading-5">© 2024 Clinicare, All rights reserved. | Powered by <span class="text-[#5599f9]">{</span> <a href="https://api.whatsapp.com/send/?phone=201099634244&text&type=phone_number&app_absent=0">Ahmed Mahfouz</a>  ,  <a href="https://api.whatsapp.com/send/?phone=201097266969&text&type=phone_number&app_absent=0">Mazen Mahfouz</a> <span class="text-[#5599f9]">}</span></p>
     </div>
   </div>
 </template>

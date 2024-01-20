@@ -8,13 +8,15 @@ import DoctorsdetailsPage from '@/components/DoctorsdetailsPage.vue'
 import ServicesPage from '@/components/ServicesPage.vue'
 import SpecialtiesPage from '@/components/SpecialtiesPage.vue'
 import ContacusPage from '@/components/ContacusPage.vue'
-import ProfilePage from '@/components/ProfilePage.vue'
-import PersonPage from '@/components/profilePages/PersonPage.vue'
-import PasswordPage from '@/components/profilePages/PasswordPage.vue'
-import WalletPage from '@/components/WalletPage.vue'
 import NotfoundPage from '@/components/NotfoundPage.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import RegisterPage from '@/components/RegisterPage.vue'
+import Myprofile_doctor from '@/components/Myprofile_doctor.vue'
+import Myprofile_user from '@/components/Myprofile_user.vue'
+import ReportPage from '@/components/ReportPage.vue'
+import My_all_servicesPage from '@/components/My_all_servicesPage.vue'
+import MeetingPage from '@/components/MeetingPage.vue'
+import ReviewsPage from '@/components/ReviewsPage.vue'
 
 Vue.use(VueRouter)
 
@@ -29,12 +31,14 @@ const routes = [
   {path: '/contact-us', component: ContacusPage},
   {path: '/login', component: LoginPage},
   {path: '/register', component: RegisterPage},
-  {path: '/profile', component: ProfilePage, children: [
-    { path: 'person', name: 'person', component: PersonPage },
-    { path: 'password', name: 'password', component: PasswordPage }
-  ],},
-  {path: '/my-walle', component: WalletPage},
-
+  {path: '/my-profile-doctor', component: Myprofile_doctor},
+  {path: '/my-profile-user', component: Myprofile_user},
+  {path: '/report', component: ReportPage},
+  {path: '/My-all-servicesPage', component: My_all_servicesPage, props: true},
+  {path: '/meeting', component: MeetingPage, props: true},
+  {path: '/review', component: ReviewsPage},
+  {path: '/my-profile-user', component: Myprofile_user},
+  {path: '*', component: NotfoundPage},
 ]
 
 const router = new VueRouter({
