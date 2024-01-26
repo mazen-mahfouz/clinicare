@@ -1,27 +1,27 @@
 <template>
   <div class="HomePage">
     <header class="w-full px-[30px] md:px-[80px] pt-[150px] pb-[100px] text-white relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)] ">
-      <img :src="require('@/image/header-img.jpeg')" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
+      <img :src="require('@/image/21.jpg')" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
       <div class="z-[2] w-full max-w-[1400px] m-auto relative text-center md:text-center">
-        <h1 class="text-[14vw] md:text-[60px] font-[700] mb-[20px]"><span class="text-[#5599f9]">كلينيكير</span> للرأي الطبي الثاني</h1>
-        <p class="text-[20px] md:text-[18px] font-[400] mb-[50px]">دعونا نساعدكم في اتخاذ القرار</p>
-        <button @click="$router.push('/services')" class=" justify-center items-center text-[12px] p-[15px_3.1rem]  md:p-[17px_40px] border-[2px] border-[#46439b] bg-[#46439b] rounded-[10px] cursor-pointer transition ease-in hover:bg-transparent inline mb-[10px] md:ml-[10px]">احصل على الخدمة</button>
-        <button @click="$router.push('/about')" class="justify-center items-center text-[12px] p-[15px_3.1rem]  md:p-[17px_40px] border-[2px] border-[#5599f9] bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:bg-transparent inline">تعرف على الخدمة</button>
+        <h1 class="text-[10vw] md:text-[50px] font-[700] mb-[20px]"><span class="text-[#5599f9]">كلينيكير</span> للرأي الطبي الثاني</h1>
+        <p class="text-[20px] md:text-[18px] font-[400] mb-[50px]">دعونا نساعدكم في اتخاذ <span class="text-[#5599f9]">القرار</span></p>
+        <button @click="$router.push('/services')" class=" justify-center items-center text-[12px] p-[12px_2.8rem]  md:p-[12px_28px] border-[2px] border-[#46439b] bg-[#46439b] rounded-[10px] cursor-pointer transition ease-in hover:bg-transparent inline mb-[10px] md:ml-[10px]">احصل على الخدمة</button>
+        <button @click="$router.push('/about')" class="justify-center items-center text-[12px] p-[12px_2.8rem]  md:p-[12px_28px] border-[2px] border-[#5599f9] bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:bg-transparent inline">تعرف على الخدمة</button>
       </div>
     </header>
     <div class="about w-full max-w-[1400px] m-auto px-[30px] md:px-[100px] py-[60px] flex flex-col md:flex-row justify-between items-center gap-[10px] lg:gap-[10%]">
       <div>
-        <h1 class="text-[35px] mb-[20px] relative after:absolute after:bottom-[-7px] after:right-0 after:w-[70px] after:h-[3px] after:bg-[#5599f9]"> <span class="text-[#5599f9]">Second Opinion </span>الراي الطبي الثاني</h1>
+        <h1 class="text-[35px] mb-[20px] relative after:absolute after:bottom-[-7px] after:right-0 after:w-[70px] after:h-[3px] after:bg-[#5599f9]">الرأي الطبي الثاني <span class="text-[#5599f9]">Second Opinion</span></h1>
         <p class="text-[18px] text-[rgba(0,_0,_0,_0.80)] text-right 2xl:max-w-[80%] mb-[20px]">الرأي الطبي الثاني هو خدمة تقدمها منصة كلينيكير تتيح للمرضى الحصول على أراء واستشارات طبية ثانية بشأن مشكلاتهم الصحية للوصول للتشخيصات الدقيقة واقتراح خطط العلاج المناسبة لتحسين مستوى الصحة والنتائج الطبية الإيجابية، وذلك من خلال ربط المرضى بالأطباء والاستشاريين المتميزين من مختلف التخصصات الطبية.</p>
-        <button @click="$router.push('/about')" class="justify-center items-center text-[#5599f9] text-[14px] p-[12px_3.1rem]  md:p-[12px_35px] border-[2px] border-[#5599f9] bg-[transparent] hover:bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:text-[#fff] inline">اقراء المزيد</button>
+        <button @click="$router.push('/about')" class="justify-center items-center text-[#5599f9] text-[14px] p-[12px_3.1rem]  md:p-[12px_35px] border-[2px] border-[#5599f9] bg-[transparent] hover:bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:text-[#fff] inline">اقرأ المزيد</button>
       </div>
-      <img :src="require('@/image/about_img_inhome.png')" class="hidden md:block w-[270px] lg:w-[450px]" alt="">
+      <img :src="require('@/image/2.jpg')" class="hidden md:block w-[270px] lg:w-[450px]" alt="">
     </div>
     <div class="line w-full h-[0.3px] bg-[rgba(203,203,203,0.53)]"></div>
-    <div class="doctors w-full max-w-[1400px] m-auto text-center px-[30px] md:px-[50px] py-[60px] bg-[#f1f4f7]">
-      <img :src="require('@/image/subject-img-inhome.png')" class="w-[120px] lg:w-[100px] m-auto mb-[20px]" alt="">
-      <h1 class="text-[32px] mb-[20px]">قائمة الأطباء</h1>
-      <div class="flex flex-wrap justify-center items-center py-[30px] gap-[10px] mb-[30px]">
+    <div class="doctors w-full m-auto text-center px-[30px] md:px-[50px] py-[60px] bg-[#f1f4f7] relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)]">
+      <img :src="require('@/image/2.jpg')" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
+      <h1 class="text-[32px] text-white mb-[20px] z-[2] relative after:absolute after:bottom-[-7px] after:right-[50%] after:translate-x-[50%] after:w-[70px] after:h-[3px] after:bg-[#5599f9]">قائمة الأطباء</h1>
+      <div class="flex flex-wrap justify-center items-center py-[30px] gap-[10px] mb-[30px] z-[2] relative">
         <div v-for="(doctor,index) in doctors" :key="index" class="p-[16px] m-[10px] w-full sm:w-[360px] flex pl-[30px] rounded-[15px] bg-white">
           <div class="w-full flex justify-start items-start flex-col gap-[20px]">
             <div class="flex justify-start items-start gap-[20px]">
@@ -44,40 +44,37 @@
           </div>
         </div>
       </div>
-      <button @click="$router.push('/doctors')" class="justify-center items-center text-[#5599f9] text-[14px] p-[12px_3.1rem]  md:p-[12px_35px] border-[2px] border-[#5599f9] bg-[transparent] hover:bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:text-[#fff] inline">المزيد من الاطباء</button>
+      <button @click="$router.push('/doctors')" class="justify-center items-center text-[#5599f9] text-[14px] p-[12px_3.1rem]  md:p-[12px_35px] border-[2px] border-[#5599f9] bg-[transparent] hover:bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:text-[#fff] inline">المزيد من الأطباء</button>
     </div>
     <div class="ourservies text-center w-full max-w-[1400px] m-auto px-[30px] md:px-[100px] py-[60px]">
       <h1 class="text-[32px] mb-[60px]">خدماتنا</h1>
       <div  class="mb-[60px]">
           <div class="flex flex-wrap justify-center items-center gap-[50px_20px]">
             <div @click="!$localStorage.token ? $router.push('/login') : form_services = true, services_name = 'Second medical opinion'" class="group cursor-pointer h-auto relative hover:bg-[#5599f9] sm:w-[360px] hover:border-[#5599f9]  transition-all duration-300 p-[5px] w-full border-[3px] border-[#5599f9] rounded-[20px] bg-white flex gap-[20px] flex-col justify-center items-center text-center Z-[2]">
-              <img :src="require('@/image/same-opinion.png')" class="absolute top-[-40px] z-[3] left-[50%] translate-x-[-50%] w-[80px] h-[80px]" alt="">
               <div class="relative p-[130px_10px]  after:absolute after:top-0 after:left-0  rounded-[20px] overflow-hidden after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)] w-full h-full">
-                <h1 class="text-[20px] text-[#FFF] group-hover:text-[white] transition-all duration-300 z-[9] relative">قراءة التقارير  الطبية وتقديم الرأي الطبي الثاني.</h1>
+                <h1 class="text-[20px] text-[#FFF] group-hover:text-[white] transition-all duration-300 z-[9] relative">قراءة التقارير  الطبية <br> وتقديم الرأي الطبي الثاني.</h1>
                 <img :src="require('@/image/same-opinion-background.jpg')" class="absolute top-0 left-0 w-full h-full object-cover Z-[3]" alt="">      
               </div>
             </div>
             <div @click="!$localStorage.token ? $router.push('/login')  : form_services = true, services_name = 'Bookanappointment'" class="group cursor-pointer h-auto relative hover:bg-[#5599f9] sm:w-[360px] hover:border-[#5599f9] transition-all duration-300 p-[5px] w-full border-[3px] border-[#5599f9] rounded-[20px] bg-white flex gap-[20px] flex-col justify-center items-center text-center Z-[2]">
-              <img :src="require('@/image/booking-doctor.png')" class="absolute top-[-40px] z-[3] left-[50%] translate-x-[-50%] w-[80px] h-[80px]" alt="">
               <div class="relative p-[130px_10px] after:absolute after:top-0 after:left-0 rounded-[20px] overflow-hidden after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)] w-full h-full">
-                <h1 class="text-[20px] text-[#FFF] group-hover:text-[white] transition-all duration-300 z-[9] relative">حجز موعد مع الاستشاري لمناقشة الرأي الطبي الثاني.</h1>
+                <h1 class="text-[20px] text-[#FFF] group-hover:text-[white] transition-all duration-300 z-[9] relative">حجز موعد مع الاستشاري <br> لمناقشة الرأي الطبي الثاني.</h1>
                 <img :src="require('@/image/booking-doctor-background.jpeg')" class="absolute top-0 left-0 w-full h-full object-cover Z-[3]" alt="">      
                 </div>
             </div>
             <div @click="!$localStorage.token ? $router.push('/login')  : form_services = true, services_name = 'Conductingexaminations'" class="group cursor-pointer h-auto relative hover:bg-[#5599f9] sm:w-[360px] hover:border-[#5599f9] transition-all duration-300 p-[5px] w-full border-[3px] border-[#5599f9] rounded-[20px] bg-white flex gap-[20px] flex-col justify-center items-center text-center Z-[2]">
-              <img :src="require('@/image/xray.png')" class="absolute top-[-40px] z-[3] left-[50%] translate-x-[-50%] w-[80px] h-[80px]" alt="">
               <div class="relative p-[130px_10px] after:absolute after:top-0 after:left-0 rounded-[20px] overflow-hidden after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)] w-full h-full">
-                <h1 class="text-[20px] text-[#FFF] group-hover:text-[white] transition-all duration-300 z-[9] relative">إجراء المزيد من الفحوصات والأشعة لتأكيد الرأي الطبي الثاني.</h1>
+                <h1 class="text-[20px] text-[#FFF] group-hover:text-[white] transition-all duration-300 z-[9] relative">إجراء المزيد من الفحوصات والأشعة <br> لتأكيد الرأي الطبي الثاني.</h1>
                 <img :src="require('@/image/xray-background.jpg')" class="absolute top-0 left-0 w-full h-full object-cover Z-[3]" alt="">      
               </div>
             </div>
           </div>  
         </div>
     </div>
-    <div class="comments w-full max-w-[1400px] m-auto text-center px-[30px] md:px-[100px] py-[60px] bg-[#f1f4f7]">
-      <img :src="require('@/image/comment-icon.png')" class="w-[120px] lg:w-[100px] m-auto mb-[20px]" alt="">
-      <h1 class="text-[32px] mb-[10px]">تجارب عملاؤنا معنا</h1>
-      <div  ref="swiper1" class="swiper mb-[60px]">
+    <div class="comments w-full  m-auto text-center px-[30px] md:px-[100px] py-[60px] bg-[#f1f4f7] relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)]">
+      <img :src="require('@/image/19.jpg')" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
+      <h1 class="text-[32px] mb-[60px] relative text-[white] z-[2]">تجارب عملاؤنا معنا</h1>
+      <div  ref="swiper1" class="swiper mb-[30px] relative z-[2]">
           <div class="swiper-wrapper flex">
             <div v-for="(review,index) in reviews" :key="index" class="p-[30px_25px] pb-[55px] group cursor-pointer swiper-slide !justify-start sm:w-[360px] flex pl-[30px] rounded-[15px] bg-[#ffffffbf] hover:bg-white transition ease-in relative">
               <div class="flex justify-start items-start flex-col gap-[20px]">
@@ -102,20 +99,18 @@
         </div>
       <button @click="$router.push('/review')" class="justify-center items-center text-[#5599f9] text-[14px] p-[12px_3.1rem]  md:p-[12px_35px] border-[2px] border-[#5599f9] bg-[transparent] hover:bg-[#5599f9] rounded-[10px] m-auto md:m-0 cursor-pointer transition ease-in hover:text-[#fff] inline">المزيد من التجارب</button>
     </div>
-    <div class="line w-full h-[0.3px] bg-[rgba(203,203,203,0.53)]"></div>
     <div class="Did you know ?">
-      <div class=" w-full grid sm:grid-cols-[50%_50%] justify-center items-center">
-        <div class="text_birthday relative z-[1] w-[100%] m-auto grid gap-[20px] text-start p-[40px_60px]">
+      <div class=" w-full grid sm:grid-cols-[50%_50%] justify-center items-start">
+        <div class="relative z-[1] w-[100%] grid gap-[20px] text-start p-[40px_60px]">
           <h1 class="leading-[.8] text-[32px] text-[#4d4d4f]">هل تعلم ؟</h1>
           <p class="leading-[1.8] text-[16px] text-[#4d4d4f]">نشرت دراسة تم إجراؤها من قبل باحثون في جامعة جون هوبكنز الأمريكية إلى أن الأخطاء الطبية تأتي في المرتبة الثالثة ضمن الأسباب الرئيسية المسببة للوفاة في الولايات المتحدة، حيث ذكرت الدراسة في تقديراتها إلى أن أكثر من 250 ألف أمريكي يموتون كل عام بسبب الأخطاء الطبية.</p>
-          <button @click="$router.push('/about')" class="bg-[#5599f9] p-[12px_40px] rounded-[22px_0] w-[max-content] leading-[1.2] text-[14px] text-[#fff]">اقراء المزيد</button>
+          <button @click="$router.push('/about')" class="bg-[#5599f9] p-[12px_40px] rounded-[22px_0] w-[max-content] leading-[1.2] text-[14px] text-[#fff]">اقرأ المزيد</button>
         </div>
-        <div class="w-full h-full row-[1] md:row-auto"><img class="w-full h-full object-cover sm:rounded-[0px_0px_100px_0px]" src="https://le-de.cdn-website.com/cf9c11e8aa574d618fc893cedbee1663/dms3rep/multi/opt/shutterstock_655688419-1920w.jpg" alt=""></div>
+        <div class="w-full h-full row-[1] md:row-auto"><img class="w-full h-full object-cover sm:rounded-[0px_0px_100px_0px]" :src="require('@/image/15.jpg')" alt=""></div>
       </div>
     </div>
-    <div class="ourcompanys w-full max-w-[1400px] m-auto text-center px-[30px] md:px-[100px] py-[60px] bg-[#f1f4f7]">
+    <div class="ourcompanys w-full m-auto text-center px-[30px] md:px-[100px] py-[60px] bg-[#f1f4f7]">
       <h1 class="text-[32px] mb-[10px]">شركائنا</h1>
-      <p class="text-[20px] text-[#5599f9] mb-[60px]">بعض المراكز الطبية المشاركة في نجاحنا</p>
       <div  ref="swiper2" class="swiper mb-[60px]">
           <div class="swiper-wrapper flex">
             <div v-for="(parent,index) in parents" :key="index" class="group cursor-pointer swiper-slide sm:w-[360px] flex] rounded-[15px] transition ease-in relative">

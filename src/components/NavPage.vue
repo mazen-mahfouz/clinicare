@@ -52,7 +52,7 @@
           <div class="group flex justify-center items-center gap-[8px] relative" v-if="!token">
             <div id="boxs" class="flex justify-center items-center gap-[10px]">
               <div @click="menu = false" class="px-[18px] pt-[9px] cursor-pointer pb-[11px] text-[16px] md:text-[10px] lg:text-[14px] hover:bg-transparent  border border-[#5599f9] transition-all duration-[.6s]  rounded-[8px] bg-[#5599f9] shadow-[0px_5px_12px_0px_#5599f9]  flex justify-center items-center text-center"> <router-link to="/login" class="opacity-[1] !text-[#fff]">تسجيل الدخول </router-link></div>
-              <div @click="menu = false" class="px-[18px] pt-[9px] cursor-pointer pb-[11px] text-[16px] md:text-[10px] lg:text-[14px] hover:bg-[#5599f9]   rounded-[8px] border border-[#5599f9] transition-all duration-[.6s]  flex justify-center items-center text-center hover:shadow-[0px_5px_12px_0px_#5599f9]">  <router-link to="/register" class=" opacity-[1] !text-[#fff]">انشاء حساب</router-link></div>
+              <div @click="menu = false" class="px-[18px] pt-[9px] cursor-pointer pb-[11px] text-[16px] md:text-[10px] lg:text-[14px] hover:bg-[#5599f9]   rounded-[8px] border border-[#5599f9] transition-all duration-[.6s]  flex justify-center items-center text-center hover:shadow-[0px_5px_12px_0px_#5599f9]">  <router-link to="/register" class=" opacity-[1] !text-[#fff]">حساب جديد</router-link></div>
             </div>
           </div>
       </div>
