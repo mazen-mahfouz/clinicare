@@ -13,7 +13,6 @@ Vue.use(wysiwyg, {
   hideModules: { "image": true,"code": true,"link": true,"table": true, "orderedList": true,"unorderedList": true,"removeFormat": true,"separator": true },
   locale: 'hu'
 })
-console.log()
 
 Vue.config.productionTip = false
 

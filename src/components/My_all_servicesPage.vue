@@ -117,21 +117,21 @@ export default {
     const headers = { 
         Authorization: `Bearer ${this.$localStorage.token}`
     };
-    axios.get(`${process.env.VUE_APP_URL}/api/report/my_reports/` , {headers})
+    axios.get(`${process.env.VUE_APP_URL}/api/report/my_reports` , {headers})
     .then((response) => { 
         this.my_reports = response.data.reports 
     }).catch(function (error) {
         console.log(error.message)
     });
 
-    axios.get(`${process.env.VUE_APP_URL}/api/reservation/my_reservations/` , {headers})
+    axios.get(`${process.env.VUE_APP_URL}/api/reservation/my_reservations` , {headers})
     .then((response) => { 
         this.my_reservations = response.data.reservation 
     }).catch(function (error) {
         console.log(error.message)
     });
 
-    axios.get(`${process.env.VUE_APP_URL}/api/get_meetings/` , {headers})
+    axios.get(`${process.env.VUE_APP_URL}/api/get_meetings` , {headers})
     .then((response) => { 
         this.my_meetings = response.data.meetings 
         console.log(response)
