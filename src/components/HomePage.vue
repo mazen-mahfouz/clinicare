@@ -1,7 +1,7 @@
 <template>
   <div class="HomePage">
     <header class="w-full px-[30px] md:px-[80px] pt-[150px] pb-[100px] text-white relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[rgba(0,0,0,0.73)] ">
-      <img :src="require('@/image/21.jpg')" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
+      <img :src="require('@/image/3.jpg')" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
       <div class="z-[2] w-full max-w-[1400px] m-auto relative text-center md:text-center">
         <h1 class="text-[10vw] md:text-[50px] font-[700] mb-[20px]"><span class="text-[#5599f9]">كلينيكير</span> للرأي الطبي الثاني</h1>
         <p class="text-[20px] md:text-[18px] font-[400] mb-[50px]">دعونا نساعدكم في اتخاذ <span class="text-[#5599f9]">القرار</span></p>

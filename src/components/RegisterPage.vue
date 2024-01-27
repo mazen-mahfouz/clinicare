@@ -46,7 +46,7 @@
                                 </ul>
                               </div>
                             </div>
-                        <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">تسجيل الدخول</button>
+                        <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">انشاء حساب جديد</button>
                         <p class="text-sm font-light text-gray-500 ">
                           تمتلك حساب بالفعل قم <router-link to="/login" class="font-medium text-primary-600 hover:underline">بتسجيل الدخول</router-link>
                         </p>
@@ -86,7 +86,7 @@
                           <input type="text" v-model="bio_doctor" name="bio" id="bio" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="اخصائي روماتيزم و مفاصل و الطب الطبيعي و التاهيل رئيس الجمعية المصرية للروماتيزم والتاهيل..." required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <ValidationProvider name="number" rules="required|numeric|min:7" :custom-messages="{required: 'اكتب رقمك !'}" v-slot="{ errors }">
+                        <ValidationProvider name="number" rules="required|numeric" :custom-messages="{required: 'اكتب رقمك !', numeric: 'اكتب ارقام فقط!'}" v-slot="{ errors }">
                           <label for="number" class="block mb-2 text-sm font-medium text-gray-900 ">رقمك</label>
                           <input type="number" v-model="number_doctor" name="number" id="number" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="0109645563" required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
@@ -125,7 +125,7 @@
                               </div>
                             </div>
                           </div>
-                        <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">تسجيل الدخول</button>
+                        <button type="submit" class="w-full text-white bg-[#5599f9] hover:bg-[#4b89e1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">انشاء حساب جديد</button>
                         <p class="text-sm font-light text-gray-500 ">
                           تمتلك حساب بالفعل قم <router-link to="/login" class="font-medium text-primary-600 hover:underline">بتسجيل الدخول</router-link>
                         </p>
