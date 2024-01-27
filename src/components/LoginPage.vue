@@ -6,8 +6,8 @@
               <div class="space-y-4 md:space-y-6 py-[40px] pt-[0]">
                   <!-- <img class="w-[200px] m-auto mb-[40px]" src="../image/logo-aboutpage.png" alt="logo"> -->
                   <div class="w-full flex justify-center items-center">
-                    <button @click="change_person = 'client'" class=" w-full h-full justify-center items-center text-[16px] hover:bg-[#5599f9] text-[white] py-[20px] border cursor-pointer transition ease-in " :class="{'bg-[#5599f9]': change_person == 'client', 'bg-[#5599f982]': change_person == 'doctor'}">مريض</button>
-                    <button @click="change_person = 'doctor'" class="w-full h-full justify-center items-center text-[16px] hover:bg-[#5599f9] text-[white] py-[20px] border m-auto md:m-0 cursor-pointer transition ease-in " :class="{'bg-[#5599f9]': change_person == 'doctor', 'bg-[#5599f982]': change_person == 'client'}">دكتور</button>
+                    <button @click="change_person = 'client', $refs.error_login.classList.add('hidden')" class=" w-full h-full justify-center items-center text-[16px] hover:bg-[#5599f9] text-[white] py-[20px] border cursor-pointer transition ease-in " :class="{'bg-[#5599f9]': change_person == 'client', 'bg-[#5599f982]': change_person == 'doctor'}">مريض</button>
+                    <button @click="change_person = 'doctor', $refs.error_login.classList.add('hidden')" class="w-full h-full justify-center items-center text-[16px] hover:bg-[#5599f9] text-[white] py-[20px] border m-auto md:m-0 cursor-pointer transition ease-in " :class="{'bg-[#5599f9]': change_person == 'doctor', 'bg-[#5599f982]': change_person == 'client'}">دكتور</button>
                   </div>
                   <ValidationObserver v-slot="{ handleSubmit }" v-if="change_person == 'client'">
                     <form  @submit.prevent="handleSubmit(login_user)" class="space-y-4 md:space-y-6 px-[10px] md:px-[30px] pt-[40px]" action="#">
@@ -18,7 +18,7 @@
                           <input type="email" v-model="email_clint" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <ValidationProvider name="Name" rules="required|alpha|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
+                        <ValidationProvider name="Name" rules="required|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">كلمة المرور</label>
                             <input type="password" v-model="pass_clint" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                             <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
@@ -38,7 +38,7 @@
                           <input type="email" v-model="email_doctor" name="email_doctor" id="email_doctor" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="">
                           <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
                         </ValidationProvider>
-                        <ValidationProvider name="password" rules="required|alpha|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
+                        <ValidationProvider name="password" rules="required|min:8" :custom-messages="{required: 'اكتب كلمة السر !', min: 'لا تقل عن 8 احروف '}" v-slot="{ errors }">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">كلمة المرور</label>
                             <input type="password" v-model="pass_doctor" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                             <span class="text-[red] font-bold text-[12px] m-[5px] my-[20px] block">{{ errors[0] }}</span>
