@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="price bg-[#f4f4f4] text-center w-full max-w-[1400px] m-auto px-[10px] md:px-[60px] py-[60px]">
+    <div class="price bg-[#f4f4f4] text-center w-fulla m-auto px-[10px] md:px-[60px] py-[60px]">
       <section>
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
