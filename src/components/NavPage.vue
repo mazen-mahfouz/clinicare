@@ -15,8 +15,7 @@
                   <span class="text-[#5496f3] absolute top-[-5px] right-[-10px] text-[15px]">{{count_notification}}</span>
                 </button>
               </li>
-              <li @click="menu = false" class="text-white relative after:absolute after:bottom-[-10px] after:w-[0%] after:h-[1px] after:left-[50%] after:translate-x-[-50%] after:bg-[#755eff] hover:after:w-full after:transition-all duration-[.6s]"><router-link to="/" class="opacity-[.6] hover:opacity-[1]">الرئيسة</router-link></li>
-              <li @click="menu = false" class="text-white relative after:absolute after:bottom-[-10px] after:w-[0%] after:h-[1px] after:left-[50%] after:translate-x-[-50%] after:bg-[#755eff] hover:after:w-full after:transition-all duration-[.6s]"><router-link to="/about" class="opacity-[.6] hover:opacity-[1]">من نحن</router-link></li>
+              <li @click="menu = false" class="text-white relative after:absolute after:bottom-[-10px] after:w-[0%] after:h-[1px] after:left-[50%] after:translate-x-[-50%] after:bg-[#755eff] hover:after:w-full after:transition-all duration-[.6s]"><router-link to="/about" class="opacity-[.6] hover:opacity-[1]">عن المنصة</router-link></li>
               <li @click="menu = false" class="text-white relative after:absolute after:bottom-[-10px] after:w-[0%] after:h-[1px] after:left-[50%] after:translate-x-[-50%] after:bg-[#755eff] hover:after:w-full after:transition-all duration-[.6s]"><router-link to="/services" class="opacity-[.6] hover:opacity-[1]">الخدمات</router-link></li>
               <li @click="menu = false" class="text-white relative after:absolute after:bottom-[-10px] after:w-[0%] after:h-[1px] after:left-[50%] after:translate-x-[-50%] after:bg-[#755eff] hover:after:w-full after:transition-all duration-[.6s]"><router-link to="/specialties" class="opacity-[.6] hover:opacity-[1]">التخصصات</router-link></li>
               <li @click="menu = false" class="text-white relative after:absolute after:bottom-[-10px] after:w-[0%] after:h-[1px] after:left-[50%] after:translate-x-[-50%] after:bg-[#755eff] hover:after:w-full after:transition-all duration-[.6s]"><router-link to="/doctors" class="opacity-[.6] hover:opacity-[1]">الأطباء</router-link></li>
@@ -318,7 +317,7 @@ export default {
     $route: function(){
         let self = this;
         console.log(this.$router.history.current.path)
-        if(this.$router.history.current.path == '/login' || this.$router.history.current.path == '/register'){
+        if(this.$router.history.current.path == '/login' || this.$router.history.current.path == '/register' || this.$router.history.current.path == '/login/doctor' || this.$router.history.current.path == '/register/doctor' || this.$router.history.current.path == '/code' || this.$router.history.current.path == '/forget-password' || this.$router.history.current.path == '/forget-password-doctor'){
           self.$refs.navbar.classList.add('!bg-[#000000d1]')
         }else{
           self.$refs.navbar.classList.remove('bg-[#000000d1]')
@@ -343,7 +342,7 @@ export default {
     })
 
     window.addEventListener("scroll", () =>{
-      if(this.$router.history.current.path == '/login' || this.$router.history.current.path == '/register'){
+      if(this.$router.history.current.path == '/login' || this.$router.history.current.path == '/register' || this.$router.history.current.path == '/login/doctor' || this.$router.history.current.path == '/register/doctor' || this.$router.history.current.path == '/code' || this.$router.history.current.path == '/forget-password' || this.$router.history.current.path == '/forget-password-doctor'){
         self.$refs.navbar.classList.add('!bg-[#000000d1]')
       }else{
         self.$refs.navbar.classList.remove('!bg-[#000000d1]')
@@ -356,7 +355,7 @@ export default {
           
       });
 
-      if(this.$router.history.current.path == '/login' || this.$router.history.current.path == '/register'){
+      if(this.$router.history.current.path == '/login' || this.$router.history.current.path == '/register' || this.$router.history.current.path == '/login/doctor' || this.$router.history.current.path == '/register/doctor' || this.$router.history.current.path == '/code' || this.$router.history.current.path == '/forget-password'){
           this.$refs.navbar.classList.add('bg-[#000000d1]')
         }else{
           if(window.scrollY > 80){
