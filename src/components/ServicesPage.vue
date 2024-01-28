@@ -33,6 +33,14 @@
             <button @click="!$localStorage.token ? $router.push('/login') : form_services = true, services_name = 'Conductingexaminations'" class="bg-[linear-gradient(180deg,_#4F94FC_0%,_#035FE9_100%)] hover:bg-[linear-gradient(180deg,#2C68C1_0%,#04347B_100%)] transition-all duration-[.5s] text-[16px] text-[white] py-[15px] px-[20px] rounded-md cursor-pointer">طلب إجراء الفحوصات والأشعة </button>
           </div>
         </div>
+        <div class="flex justify-start items-center gap-[40px] rounded-[10px] overflow-hidden relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[rgba(0,0,0,0.55)] p-[60px_20px]">
+          <img :src="require('@/image/DentalClinics.jpg')" class="rounded-lg absolute top-0 left-0 w-full h-full object-cover" alt="">
+          <div class="relative z-[3] text-center sm:px-[30px]">
+            <h1 class="text-[38px] text-[#ffffff]  mb-[20px]">عيادات الأسنان</h1>
+            <p class="text-[17px] text-[#ffffff] mb-[30px]">مجموعة من الاستشاريين في مجال طب وجراحة الأسنان لتقديم الرأي الطبي المناسب لجراحات الفم والأسنان والتركيبات والتقاويم</p>
+            <button @click="!$localStorage.token ? $router.push('/login') : form_services = true, services_name = 'Conductingexaminations'" class="bg-[linear-gradient(180deg,_#4F94FC_0%,_#035FE9_100%)] hover:bg-[linear-gradient(180deg,#2C68C1_0%,#04347B_100%)] transition-all duration-[.5s] text-[16px] text-[white] py-[15px] px-[20px] rounded-md cursor-pointer">اطلب الخدمة</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="price bg-[#f4f4f4] text-center w-fulla m-auto px-[10px] md:px-[60px] py-[60px]">
